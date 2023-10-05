@@ -1,5 +1,11 @@
+import { OrdersList } from '@/app/components'
+
 const Home = () => {
-  return <div>Home page</div>
+  return (
+    <div>
+      <OrdersList />
+    </div>
+  )
 }
 
 export default Home

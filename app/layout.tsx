@@ -1,6 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { CssBaseline, Container } from '@mui/material'
 import { Header } from '@/app/components'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -17,9 +18,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={`${inter.className} h-screen`}>
+      <CssBaseline />
+      <body className={`${inter.className}`}>
         <Header />
-        <div className='container mx-auto'>{children}</div>
+        <Container className='py-8'>{children}</Container>
       </body>
     </html>
   )

@@ -1,7 +1,6 @@
 import { NextResponse, NextRequest } from 'next/server'
 import connectMongoDB from '@/lib/mongodb'
-import Order from '@/models/Order'
-// import { draftOrder } from '@/draftOrder'
+import { Order } from '@/models'
 
 export const POST = async (request: NextRequest) => {
   try {
