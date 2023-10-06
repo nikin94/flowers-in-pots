@@ -10,7 +10,7 @@ const OrdersList = async () => {
     payments.find((p: IPayment) => p.orderId === orderId)
 
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={4}>
       {orders.map((order: IOrder) => (
         <Grid xs={4} key={order._id}>
           <Order order={order} payment={getPayment(order._id)} />
@@ -22,7 +22,7 @@ const OrdersList = async () => {
 
 const getOrders = async () => {
   try {
-    const res = await fetch('http://localhost:3000/api/orders', {
+    const res = await fetch(process.env.DOMAIN + 'api/orders', {
       cache: 'no-store'
     })
 

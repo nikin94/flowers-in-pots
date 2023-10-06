@@ -30,16 +30,13 @@ const OrderLinearProgressBar = ({
 
   return (
     <Box sx={{ display: 'flex', alignItems: 'center', flex: 1 }}>
-      {/* <Typography variant='h6' component='h6'>
-        0
-      </Typography> */}
       <BorderLinearProgress
         variant='determinate'
         value={progress}
         sx={{ flex: 1, mx: 1 }}
       />
-      <Typography variant='h6' component='h6'>
-        {fullPrice}р
+      <Typography variant='h6' component='h6' sx={{ fontWeight: '900' }}>
+        {value}р
       </Typography>
     </Box>
   )
