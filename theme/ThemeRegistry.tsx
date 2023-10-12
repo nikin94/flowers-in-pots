@@ -19,7 +19,7 @@ const themeOptions: ThemeOptions = {
   },
   palette: {
     background: {
-      default: '#ceffde'
+      default: '#e8fdf0'
     },
     primary: {
       main: '#1976d2'

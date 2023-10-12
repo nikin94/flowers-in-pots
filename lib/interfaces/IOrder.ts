@@ -6,13 +6,13 @@ export interface IOrder {
   customer: ICustomer
   bank: Bank
   deliveryType: DeliveryType
-  items?: IOrderItem[]
+  orderNumber: number
+  items: IOrderItem[]
   price: {
     items: number
     delivery: number
     total: number
   }
-  isGiftIncluded?: boolean
   trackingId?: number
   shipped?: number
   completed?: number

@@ -48,7 +48,6 @@ export const draftOrder = {
     delivery: 400,
     total: 4400
   },
-  isGiftIncluded: true,
   trackingId: 123456789,
   shipped: 1696260139342 - 1000 * 60 * 60 * 24,
   completed: 1696260139342

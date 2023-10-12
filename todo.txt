@@ -1,0 +1,2 @@
+customers collection
+gifts list for every customer 

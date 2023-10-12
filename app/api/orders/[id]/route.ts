@@ -11,7 +11,6 @@ export const PUT = async (req: NextRequest) => {
     deliveryType,
     items,
     price,
-    isGiftIncluded,
     trackingId,
     shipped,
     completed
@@ -23,7 +22,6 @@ export const PUT = async (req: NextRequest) => {
   if (deliveryType) updatedData.deliveryType = deliveryType
   if (items) updatedData.items = items
   if (price) updatedData.price = price
-  if (isGiftIncluded) updatedData.isGiftIncluded = isGiftIncluded
   if (trackingId) updatedData.trackingId = trackingId
   if (shipped) updatedData.shipped = shipped
   if (completed) updatedData.completed = completed

@@ -42,10 +42,6 @@ const OrderBadge = ({
     <Badge
       badgeContent={badgeData.content}
       color={badgeData.color}
-      // anchorOrigin={{
-      //   vertical: 'bottom',
-      //   horizontal: 'right'
-      // }}
       sx={{
         display: 'block',
         '& .MuiBadge-badge': {

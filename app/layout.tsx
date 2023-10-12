@@ -22,7 +22,7 @@ export default function RootLayout({
       <ThemeRegistry>
         <body className={`${inter.className}`}>
           <Header />
-          <Container className='py-8'>{children}</Container>
+          <Container sx={{ py: 4 }}>{children}</Container>
         </body>
       </ThemeRegistry>
     </html>

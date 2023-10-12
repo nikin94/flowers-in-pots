@@ -29,7 +29,14 @@ const OrderLinearProgressBar = ({
   const progress = useMemo(() => (value * 100) / fullPrice, [value, fullPrice])
 
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center', flex: 1 }}>
+    <Box
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        mt: 1
+      }}
+    >
       <BorderLinearProgress
         variant='determinate'
         value={progress}

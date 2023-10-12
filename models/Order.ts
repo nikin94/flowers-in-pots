@@ -13,6 +13,7 @@ const orderSchema = new Schema<IOrder>(
     },
     bank: { type: String, enum: Bank },
     deliveryType: { type: String, enum: DeliveryType },
+    orderNumber: { type: Number, required: true },
     items: {
       type: Array<IOrderItem>,
       required: true

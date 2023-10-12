@@ -6,7 +6,14 @@ export const POST = async (request: NextRequest) => {
   try {
     const newOrder = await request.json()
     await connectMongoDB()
-    const order = await Order.create(newOrder)
+    const orderWithMaxNumber = await Order.findOne({
+      orderNumber: { $exists: true }
+    }).sort({ orderNumber: -1 })
+    const order = await Order.create({
+      ...newOrder,
+      orderNumber: (orderWithMaxNumber.orderNumber || 0) + 1
+    })
+    console.log(order)
     return NextResponse.json(
       { message: 'Order created', order },
       { status: 201 }
