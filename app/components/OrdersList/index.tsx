@@ -9,13 +9,16 @@ const OrdersList = async () => {
   const getPayment = (orderId: string) =>
     payments.find((p: IPayment) => p.orderId === orderId)
 
+  const renderOrders = () =>
+    orders.map((order: IOrder) => (
+      <Grid xs={4} key={order._id}>
+        <Order order={order} payment={getPayment(order._id)} />
+      </Grid>
+    ))
+
   return (
     <Grid container spacing={4}>
-      {orders.map((order: IOrder) => (
-        <Grid xs={4} key={order._id}>
-          <Order order={order} payment={getPayment(order._id)} />
-        </Grid>
-      ))}
+      {renderOrders()}
     </Grid>
   )
 }

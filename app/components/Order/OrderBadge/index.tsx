@@ -1,58 +1,58 @@
-import { ReactNode, useMemo } from 'react'
-import Badge from '@mui/material/Badge'
-import CheckIcon from '@mui/icons-material/Check'
-import Close from '@mui/icons-material/Close'
-import HourglassBottomIcon from '@mui/icons-material/HourglassBottom'
-import { ChipPropsColorOverrides } from '@mui/material'
-import { OverridableStringUnion } from '@mui/types'
-import { IPayment } from '@/lib/interfaces'
+import { ReactNode } from 'react'
+import Box from '@mui/material/Box'
+import Tooltip from '@mui/material/Tooltip'
+
+interface OrderBadgeProps {
+  content: ReactNode
+  hoverText: string
+  bgcolor?: string
+  style?: React.CSSProperties
+}
 
 const OrderBadge = ({
-  payment,
-  children
-}: {
-  payment: IPayment
-  children: ReactNode
-}) => {
-  const badgeData: {
-    content: ReactNode
-    color: OverridableStringUnion<
-      | 'default'
-      | 'primary'
-      | 'secondary'
-      | 'error'
-      | 'info'
-      | 'success'
-      | 'warning',
-      ChipPropsColorOverrides
-    >
-  } = useMemo(() => {
-    if (!payment)
-      return {
-        content: <Close />,
-        color: 'error'
-      }
-    return {
-      content: payment.isFullyPaid ? <CheckIcon /> : <HourglassBottomIcon />,
-      color: payment.isFullyPaid ? 'success' : 'warning'
-    }
-  }, [payment])
-
+  content,
+  bgcolor,
+  hoverText,
+  style
+}: OrderBadgeProps) => {
   return (
-    <Badge
-      badgeContent={badgeData.content}
-      color={badgeData.color}
-      sx={{
-        display: 'block',
-        '& .MuiBadge-badge': {
-          width: 30,
-          height: 30,
-          borderRadius: 15
+    <Tooltip
+      title={hoverText}
+      placement='top'
+      arrow
+      slotProps={{
+        popper: {
+          modifiers: [
+            {
+              name: 'offset',
+              options: {
+                offset: [0, -8]
+              }
+            }
+          ]
         }
       }}
     >
-      {children}
-    </Badge>
+      <Box
+        sx={{
+          display: 'flex',
+          width: 36,
+          height: 36,
+          alignItems: 'center',
+          justifyContent: 'center',
+          borderRadius: 15,
+          overflow: 'hidden',
+          bgcolor: bgcolor || 'red',
+          position: 'absolute',
+          top: -18,
+          right: 10,
+          zIndex: 1,
+          ...style
+        }}
+      >
+        {content}
+      </Box>
+    </Tooltip>
   )
 }
 
